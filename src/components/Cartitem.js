@@ -15,7 +15,7 @@ const Cartitem = ({data}) => {
           <img
             src={data.image}
             className="object-cover "
-            alt=""
+            alt={data.image}
           />
         </div>
         <div className="md:ml-10 self-start space-y-5 w-[100%] md:w-[70%]">

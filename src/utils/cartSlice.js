@@ -9,7 +9,8 @@ export const cartSlice = createSlice({
         state.push(action.payload);
     },
     removeCart:(state,action)=>{
-        const index = state.indexOf(action.payload)
+        const index = state.indexOf(action.payload);
+        console.log(index);
         state.splice(index,1);
     },
     }

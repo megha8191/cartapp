@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Headers'
 import { useSelector } from 'react-redux'
 import cartSlice from '../utils/cartSlice'
@@ -6,6 +6,12 @@ import Cartitem from './Cartitem'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
+  const [totalamount,setTotalamount] = useState(0);
+  const total =()=>{
+    cartitems.reduce(function(){
+      
+    })
+  }
   const cartitems = useSelector((store)=>store.cart);
   return (
     <div>
@@ -29,14 +35,14 @@ const Cart = () => {
                 <span className="text-gray-700 font-semibold text-xl">
                   Total Items
                 </span>
-                : 2
+                : {cartitems.length}
               </p>
             </div>
             <div className="flex flex-col">
               <p className="text-xl font-bold">
                 {" "}
                 <span className="text-gray-700 font-semibold">Total Amount</span> :
-                $71.98
+                {totalamount}
               </p>
               <button className="bg-green-700 hover:bg-purple-50 rounded-lg text-white transition duration-300 ease-linear mt-5 border-2 border-green-600 font-bold hover:text-green-700 p-3 text-xl">
                 Checkout Now
