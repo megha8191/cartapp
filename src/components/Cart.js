@@ -1,18 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Header from './Headers'
 import { useSelector } from 'react-redux'
 import cartSlice from '../utils/cartSlice'
 import Cartitem from './Cartitem'
 import { Link } from 'react-router-dom'
 
+
 const Cart = () => {
-  const [totalamount,setTotalamount] = useState(0);
-  const total =()=>{
-    cartitems.reduce(function(){
-      
-    })
-  }
+  const [total,setTotal] = useState(0);
   const cartitems = useSelector((store)=>store.cart);
+
+  
+  useEffect(() => {
+    const totalPrice = cartitems.reduce((accumulator, currentItem) => {
+      return accumulator + currentItem.price;
+    }, 0);
+    setTotal(totalPrice);
+  }, [cartitems]);
+
   return (
     <div>
       <Header />
@@ -42,7 +47,7 @@ const Cart = () => {
               <p className="text-xl font-bold">
                 {" "}
                 <span className="text-gray-700 font-semibold">Total Amount</span> :
-                {totalamount}
+                {total}
               </p>
               <button className="bg-green-700 hover:bg-purple-50 rounded-lg text-white transition duration-300 ease-linear mt-5 border-2 border-green-600 font-bold hover:text-green-700 p-3 text-xl">
                 Checkout Now

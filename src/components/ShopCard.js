@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import {useDispatch, useSelector}  from 'react-redux'
 import cartSlice, { addtoCart ,removeCart} from '../utils/cartSlice';
 
@@ -12,6 +12,10 @@ const ShopCard = ({data}) => {
     setIncart(false)
     dispatch(removeCart(prod))
   }
+  useEffect(() => {
+    const productInCart = cartitems.some(item => item.id === data.id);
+    setIncart(productInCart);
+  }, [cartitems, data.id]);
 
   const addcart =(prod)=>{
     setIncart(true);

@@ -26,9 +26,9 @@ const Cartitem = ({data}) => {
           {(data.description).substring(0,60)}
           </h1>
           <div className="flex items-center justify-between">
-            <p className="font-bold text-lg text-green-600">{data.price}</p>
-            <div className=" bg-red-200 group hover:bg-red-400 transition-transform duration-300 cursor-pointer rounded-full p-3 mr-3">
-              <svg onClick={()=>{removecart(data)}}
+            <p className="font-bold text-lg text-green-600">${data.price}</p>
+            <div onClick={()=>{removecart(data)}} className=" bg-red-200 group hover:bg-red-400 transition-transform duration-300 cursor-pointer rounded-full p-3 mr-3">
+              <svg 
                 stroke="currentColor"
                 fill="currentColor"
                 strokeWidth={0}
